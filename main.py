@@ -2,6 +2,8 @@
 Módulo principal para procesar datos de gratuidad de libros de texto en Andalucía.
 """
 
+import time
+
 # Constante para el path del archivo CSV
 FILE_PATH = 'gratuidadlibrosdetextoandalucia.csv'
 
@@ -21,7 +23,12 @@ def leer_csv(file_path):
     csv_data = [line.strip().split(',') for line in lines[1:]]
     return csv_headers, csv_data
 
+# Marcar tiempo de inicio
+start_time = time.time()
 leidos_headers, leidos_data = leer_csv(FILE_PATH)
+# Marcar tiempo de fin y mostrar el tiempo transcurrido
+end_time = time.time()
+print(f"Tiempo en leer el archivo CSV: {end_time - start_time:.4f} segundos")
 
 def filtrar_datos(datos, tipo_centro):
     """
@@ -36,8 +43,13 @@ def filtrar_datos(datos, tipo_centro):
     """
     return [row for row in datos if row[2] == tipo_centro]
 
+# Marcar tiempo de inicio
+start_time = time.time()
 publico = filtrar_datos(leidos_data, 'Público')
 concertado = filtrar_datos(leidos_data, 'Concertado')
+# Marcar tiempo de fin y mostrar el tiempo transcurrido
+end_time = time.time()
+print(f"Tiempo en filtrar los datos por tipología: {end_time - start_time:.4f} segundos")
 
 def contar_ocurrencias(lista):
     """
@@ -58,8 +70,13 @@ def contar_ocurrencias(lista):
             conteo[nombre_editorial] = 1
     return conteo
 
+# Marcar tiempo de inicio
+start_time = time.time()
 editoriales_publico = contar_ocurrencias(publico)
 editoriales_concertado = contar_ocurrencias(concertado)
+# Marcar tiempo de fin y mostrar el tiempo transcurrido
+end_time = time.time()
+print(f"Tiempo en contar ocurrencias de editoriales: {end_time - start_time:.4f} segundos")
 
 def obtener_top_3(conteo):
     """
@@ -73,8 +90,13 @@ def obtener_top_3(conteo):
     """
     return sorted(conteo.items(), key=lambda x: x[1], reverse=True)[:3]
 
+# Marcar tiempo de inicio
+start_time = time.time()
 top_3_publico = obtener_top_3(editoriales_publico)
 top_3_concertado = obtener_top_3(editoriales_concertado)
+# Marcar tiempo de fin y mostrar el tiempo transcurrido
+end_time = time.time()
+print(f"Tiempo en obtener el TOP 3 de editoriales: {end_time - start_time:.4f} segundos")
 
 # Mostrar resultados
 print("Top 3 Editoriales en Centros Públicos:")
