@@ -21,9 +21,9 @@ def leer_csv(path):
     """
     with open(path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
-    headers = lines[0].strip().split(',')
-    data = [line.strip().split(',') for line in lines[1:]]
-    return headers, data
+    head = lines[0].strip().split(',')
+    dat = [line.strip().split(',') for line in lines[1:]]
+    return head, dat
 
 # Marcar tiempo de inicio
 headers, data = leer_csv(FILE_PATH)

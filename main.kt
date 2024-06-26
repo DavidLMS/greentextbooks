@@ -2,10 +2,14 @@ import java.io.File
 import kotlin.system.measureTimeMillis
 
 fun leerCsv(filePath: String): Pair<List<String>, List<List<String>>> {
+    val begin = System.currentTimeMillis()
     val lines = File(filePath).readLines()
     val headers = lines[0].split(",")
     val data = lines.drop(1).map { it.split(",") }
     return Pair(headers, data)
+    val end = System.currentTimeMillis()
+    println("Tiempo en leer el archivo CSV: ${(end-begin) / 1000.0} segundos")
+   
 }
 
 fun filtrarDatos(datos: List<List<String>>, tipoCentro: String): List<List<String>> {
@@ -30,7 +34,7 @@ fun main() {
     println("Tiempo en leer el archivo CSV: ${tiempoLectura / 1000.0} segundos")
 
     val (_, data) = leerCsv(filePath)  // Volvemos a leer los datos para usarlos más adelante
-
+    
     // Medir tiempo de filtrado
     val tiempoFiltrado = measureTimeMillis {
         val publico = filtrarDatos(data, "Público")
