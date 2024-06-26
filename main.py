@@ -1,3 +1,4 @@
+import cProfile
 # Paso 1: Leer el archivo CSV
 file_path = 'gratuidadlibrosdetextoandalucia.csv'
 
@@ -8,7 +9,7 @@ def leer_csv(file_path):
     data = [line.strip().split(',') for line in lines[1:]]
     return headers, data
 
-headers, data = leer_csv(file_path)
+cProfile.run("headers, data = leer_csv(file_path)")
 
 # Paso 2: Filtrar los datos por tipología de centro
 publico = [row for row in data if row[2] == 'Público']
