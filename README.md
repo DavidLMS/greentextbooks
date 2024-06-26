@@ -26,7 +26,7 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. Clona este repositorio:
 
 ```
-git clone https://github.com/DavidLMS/greentextbooks.giT
+git clone https://github.com/DavidLMS/greentextbooks.git
 ```
 
 2. Navega al directorio del proyecto:
