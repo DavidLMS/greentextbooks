@@ -17,27 +17,27 @@ def leer_csv(file_path):
     """
     with open(file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
-    headers = lines[0].strip().split(',')
-    data = [line.strip().split(',') for line in lines[1:]]
-    return headers, data
+    csv_headers = lines[0].strip().split(',')
+    csv_data = [line.strip().split(',') for line in lines[1:]]
+    return csv_headers, csv_data
 
-headers, data = leer_csv(FILE_PATH)
+leidos_headers, leidos_data = leer_csv(FILE_PATH)
 
-def filtrar_datos(data, tipo_centro):
+def filtrar_datos(datos, tipo_centro):
     """
     Filtra los datos por tipología de centro.
     
     Args:
-    data (list): Lista de datos del CSV.
+    datos (list): Lista de datos del CSV.
     tipo_centro (str): Tipo de centro a filtrar ('Público' o 'Concertado').
     
     Returns:
     list: Datos filtrados por el tipo de centro especificado.
     """
-    return [row for row in data if row[2] == tipo_centro]
+    return [row for row in datos if row[2] == tipo_centro]
 
-publico = filtrar_datos(data, 'Público')
-concertado = filtrar_datos(data, 'Concertado')
+publico = filtrar_datos(leidos_data, 'Público')
+concertado = filtrar_datos(leidos_data, 'Concertado')
 
 def contar_ocurrencias(lista):
     """
@@ -51,11 +51,11 @@ def contar_ocurrencias(lista):
     """
     conteo = {}
     for row in lista:
-        editorial = row[8]
-        if editorial in conteo:
-            conteo[editorial] += 1
+        nombre_editorial = row[8]
+        if nombre_editorial in conteo:
+            conteo[nombre_editorial] += 1
         else:
-            conteo[editorial] = 1
+            conteo[nombre_editorial] = 1
     return conteo
 
 editoriales_publico = contar_ocurrencias(publico)
