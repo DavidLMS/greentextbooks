@@ -34,17 +34,24 @@ Profilling automático con CProfile:  <!-- .element: class="fragment" -->
 
 ## Medición energética
 
-<small>Platform system: macOS-14-5-arm64-arm-64bit Python version: 3.9.6
-CodeCarbon version: 2.2.3
-Available RAM : 24.000 GB
-CPU count: 8
-CPU model: apple M2
-Energy consumed for RAM : 0.0000000 kWh. 
-RAM Power : 9.0000000000002
-Energy consumed for all CPUs : 0,00000002 kWh. 
-Total CPU Power : 42.5 W</small>
+<small>Platform system: macOS-14-5-arm64-arm-64bit </small>
 
-0.000002 kWh of electricity used since the beginning<!-- .element: class="fragment" -->
+<small>Python version: 3.9.6</small>
+
+<small>CodeCarbon version: 2.2.3</small>
+
+<small>CPU count: 8</small>
+
+<small>CPU model: apple M2</small>
+
+<small>Energy consumed for RAM : 0.0000000 kWh. </small>
+
+<small>Energy consumed for all CPUs : 0,00000002 kWh. </small>
+
+<small>Total CPU Power : 42.5 W</small>
+
+
+0.000002 kWh of electricity used since the beginning
 ---
 ## Prueba con Kotlin
 
