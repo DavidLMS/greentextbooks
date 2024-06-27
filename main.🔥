@@ -1,0 +1,121 @@
+import time
+
+# Función principal
+fn main():
+    # Constante para el path del archivo CSV
+    var FILE_PATH = 'gratuidadlibrosdetextoandalucia.csv'
+
+    def leer_csv(file_path: String) -> Tuple[List[String], List[List[String]]]:
+        """
+        Lee un archivo CSV y devuelve sus encabezados y datos.
+        
+        Args:
+        file_path (String): Ruta del archivo CSV a leer.
+        
+        Returns:
+        tuple: Una tupla conteniendo los encabezados y los datos del CSV.
+        """
+        with open(file_path, 'r') as file:
+            content = file.read()
+        lines = content.split('\n')
+        var csv_headers = lines[0].strip().split(',')
+        print(lines[0])
+        var csv_data = List[List[String]]()
+        for line in lines[1:]:
+            if line[].strip() != '':
+                csv_data.append(line[].strip().split(','))
+        return csv_headers, csv_data
+
+    # Marcar tiempo de inicio
+    var start_time = time.now()
+    try:
+        var leidos = leer_csv(FILE_PATH)
+    except FileNotFoundError:
+        print("El archivo {FILE_PATH} no se encontró.")
+        return
+    # Marcar tiempo de fin y moStringar el tiempo transcurrido
+    var end_time = time.now()
+    print("Tiempo en leer el archivo CSV: {end_time - start_time:.4f} segundos")
+
+    def filtrar_datos(datos: List[List[String]], tipo_centro: String) -> List[List[String]]:
+        """
+        Filtra los datos por tipología de centro.
+        
+        Args:
+        datos (list): Lista de datos del CSV.
+        tipo_centro (String): Tipo de centro a filtrar ('Público' o 'Concertado').
+        
+        Returns:
+        list: Datos filtrados por el tipo de centro especificado.
+        """
+        var datos_filtrados = List[List[String]]()
+        for row in datos:
+            if row[][2] == tipo_centro:
+                datos_filtrados.append(row[])
+        return datos_filtrados
+
+    # Marcar tiempo de inicio
+    start_time = time.now()
+    var publico = filtrar_datos(leidos[1], 'Público')
+    var concertado = filtrar_datos(leidos[1], 'Concertado')
+    # Marcar tiempo de fin y moStringar el tiempo transcurrido
+    end_time = time.now()
+    print("Tiempo en filtrar los datos por tipología: {end_time - start_time:.4f} segundos")
+
+    def contar_ocurrencias(lista: List[List[String]]) -> Dict[String, Int]:
+        """
+        Cuenta las ocurrencias de cada editorial en una lista de datos.
+        
+        Args:
+        lista (list): Lista de datos del centro específico.
+        
+        Returns:
+        dict: Un diccionario con el conteo de ocurrencias por editorial.
+        """
+        var conteo = {}
+        for row in lista:
+            var nombre_editorial = row[][8]
+            if nombre_editorial in conteo:
+                conteo[nombre_editorial] += 1
+            else:
+                conteo[nombre_editorial] = 1
+        return conteo
+
+    # Marcar tiempo de inicio
+    start_time = time.now()
+    var editoriales_publico = contar_ocurrencias(publico)
+    var editoriales_concertado = contar_ocurrencias(concertado)
+    # Marcar tiempo de fin y moStringar el tiempo transcurrido
+    end_time = time.now()
+    print("Tiempo en contar ocurrencias de editoriales: {end_time - start_time:.4f} segundos")
+
+    def obtener_top_3(conteo: Dict[String, Int]) -> List[tuple[String, Int]]:
+        """
+        Obtiene el TOP 3 de editoriales según el conteo.
+        
+        Args:
+        conteo (dict): Diccionario con el conteo de editoriales.
+        
+        Returns:
+        list: Lista de las top 3 editoriales más frecuentes.
+        """
+        return sorted(conteo.items(), key=lambda x: x[1], reverse=True)[:3]
+
+    # Marcar tiempo de inicio
+    start_time = time.now()
+    var top_3_publico = obtener_top_3(editoriales_publico)
+    var top_3_concertado = obtener_top_3(editoriales_concertado)
+    # Marcar tiempo de fin y moStringar el tiempo transcurrido
+    end_time = time.now()
+    print(f"Tiempo en obtener el TOP 3 de editoriales: {end_time - start_time:.4f} segundos")
+
+    # MoStringar resultados
+    print("Top 3 Editoriales en Centros Públicos:")
+    for editorial, count in top_3_publico:
+        print(f"{editorial}: {count}")
+
+    print("\nTop 3 Editoriales en Centros Concertados:")
+    for editorial, count in top_3_concertado:
+        print(f"{editorial}: {count}")
+
+# Llamar a la función principal
