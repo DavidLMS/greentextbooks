@@ -10,6 +10,14 @@ GreenTextBooks es un proyecto dedicado al análisis de datos abiertos de educaci
 
 ¿Qué editoriales de libros de texto son las más elegidas por los centros públicos y concertados? <!-- .element: class="fragment" -->
 ---
+## Organización del trabajo
+
+Repositorio en Github <!-- .element: class="fragment" -->
+
+Github Project (agile) <!-- .element: class="fragment" -->
+
+Presentación con RevealJS usando Github Pages <!-- .element: class="fragment" -->
+---
 ## Implementación inicial
 
 Lenguaje elegido: Python <!-- .element: class="fragment" -->
@@ -34,17 +42,31 @@ Profilling automático con CProfile:  <!-- .element: class="fragment" -->
 
 ## Medición energética
 
-<small>Platform system: macOS-14-5-arm64-arm-64bit Python version: 3.9.6
-CodeCarbon version: 2.2.3
-Available RAM : 24.000 GB
-CPU count: 8
-CPU model: apple M2
-Energy consumed for RAM : 0.0000000 kWh. 
-RAM Power : 9.0000000000002
-Energy consumed for all CPUs : 0,00000002 kWh. 
-Total CPU Power : 42.5 W</small>
+<small>Platform system: macOS-14-5-arm64-arm-64bit </small>
 
-0.000002 kWh of electricity used since the beginning<!-- .element: class="fragment" -->
+<small>Python version: 3.9.6</small>
+
+<small>CodeCarbon version: 2.2.3</small>
+
+<small>CPU count: 8</small>
+
+<small>CPU model: apple M2</small>
+
+<small>Energy consumed for RAM : 0.0000000 kWh. </small>
+
+<small>Energy consumed for all CPUs : 0,00000002 kWh. </small>
+
+<small>Total CPU Power : 42.5 W</small>
+
+
+Función leer_csv:
+
+0.000002 kWh of electricity used since the beginning
+
+
+## powermetrics
+
+3,787 W (30 ejecuciones del programa completo)
 ---
 ## Prueba con Kotlin
 
@@ -52,6 +74,18 @@ Tiempos peores  <!-- .element: class="fragment" -->
 
 0,196 segundos (M3 Pro)  <!-- .element: class="fragment" -->
 ---
+## Optimizaciones posibles
 
+La función que más tiempo necesita es leer_csv  <!-- .element: class="fragment" -->
 
+Uso de dependencias como csv, pandas o numpy empeora los tiempos  <!-- .element: class="fragment" -->
 
+De 0,149 a 0,2  <!-- .element: class="fragment" -->
+---
+## Conclusiones
+
+El problema no es complejo, difícil de optimizar <!-- .element: class="fragment" -->
+
+Muchas veces es mejor evitar dependencias <!-- .element: class="fragment" -->
+---
+## ¿Dudas?
