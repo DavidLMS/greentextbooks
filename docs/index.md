@@ -51,7 +51,14 @@ Profilling automático con CProfile:  <!-- .element: class="fragment" -->
 <small>Total CPU Power : 42.5 W</small>
 
 
+Función leer_csv:
+
 0.000002 kWh of electricity used since the beginning
+
+
+## powermetrics
+
+3,787 W (30 ejecuciones del programa completo)
 ---
 ## Prueba con Kotlin
 
@@ -59,6 +66,18 @@ Tiempos peores  <!-- .element: class="fragment" -->
 
 0,196 segundos (M3 Pro)  <!-- .element: class="fragment" -->
 ---
+## Optimizaciones posibles
 
+La función que más tiempo necesita es leer_csv  <!-- .element: class="fragment" -->
 
+Uso de dependencias como csv, pandas o numpy empeora los tiempos  <!-- .element: class="fragment" -->
 
+De 0,149 a 0,2  <!-- .element: class="fragment" -->
+---
+## Conclusiones
+
+El problema no es complejo, difícil de optimizar <!-- .element: class="fragment" -->
+
+Muchas veces es mejor evitar dependencias <!-- .element: class="fragment" -->
+---
+## ¿Dudas?
