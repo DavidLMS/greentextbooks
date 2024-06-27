@@ -10,6 +10,14 @@ GreenTextBooks es un proyecto dedicado al análisis de datos abiertos de educaci
 
 ¿Qué editoriales de libros de texto son las más elegidas por los centros públicos y concertados? <!-- .element: class="fragment" -->
 ---
+## Organización del trabajo
+
+Repositorio en Github <!-- .element: class="fragment" -->
+
+Github Project (agile) <!-- .element: class="fragment" -->
+
+Presentación con RevealJS usando Github Pages <!-- .element: class="fragment" -->
+---
 ## Implementación inicial
 
 Lenguaje elegido: Python <!-- .element: class="fragment" -->
