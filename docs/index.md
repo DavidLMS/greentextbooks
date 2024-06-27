@@ -20,7 +20,38 @@ Sin dependecias <!-- .element: class="fragment" -->
 ---
 ## Pruebas realizadas
 
-Profilling manual con Time:
+Profilling manual con Time:  <!-- .element: class="fragment" -->
 
-0,1459 segundos (M3 Pro)
+0,1459 segundos (M3 Pro)  <!-- .element: class="fragment" -->
+
+Profilling automático con CProfile:  <!-- .element: class="fragment" -->
+
+245456 function calls in 0.175 seconds (M3 Pro)  <!-- .element: class="fragment" -->
+
+
+<img class="r-stretch" style="text-align: center" src="assets/python-cprofile.png">
+
+
+## Medición energética
+
+<small>Platform system: macOS-14-5-arm64-arm-64bit Python version: 3.9.6
+CodeCarbon version: 2.2.3
+Available RAM : 24.000 GB
+CPU count: 8
+CPU model: apple M2
+Energy consumed for RAM : 0.0000000 kWh. 
+RAM Power : 9.0000000000002
+Energy consumed for all CPUs : 0,00000002 kWh. 
+Total CPU Power : 42.5 W</small>
+
+0.000002 kWh of electricity used since the beginning<!-- .element: class="fragment" -->
+---
+## Prueba con Kotlin
+
+Tiempos peores  <!-- .element: class="fragment" -->
+
+0,196 segundos (M3 Pro)  <!-- .element: class="fragment" -->
+---
+
+
 
